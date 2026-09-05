@@ -54,8 +54,6 @@ public class Heap {
     public void Insert(int value){
         buffer.add(value);
         siftUP(size++);
-        System.out.print('i');
-        System.out.println(buffer);
     }
 
     public Integer Get(){
@@ -67,8 +65,6 @@ public class Heap {
         swap(0, --size);
         buffer.remove(size);
         siftDown(0);
-        System.out.print('g');
-        System.out.println(buffer);
         return res;
     }
 

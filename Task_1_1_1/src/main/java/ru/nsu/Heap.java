@@ -19,9 +19,9 @@ public class Heap {
     }
 
     private void siftUP(int idx){
-        if (idx == 0){
+        if (idx == 0)
             return;
-        }
+
         int parentIdx = getParentIdx(idx);
         if (buffer.get(idx) < buffer.get(parentIdx)){
             swap(idx, parentIdx);
@@ -31,29 +31,31 @@ public class Heap {
 
     private void siftDown(int idx){
         int lChildIdx = idx*2+1;
-        if (lChildIdx>=size){
+        if (lChildIdx>=size)
             return;
-        }
 
         int rChildIdx = idx*2+2;
         int resChildIdx = lChildIdx;
-        if (rChildIdx < size && buffer.get(rChildIdx) < buffer.get(lChildIdx)){
+        if (rChildIdx < size && buffer.get(rChildIdx) < buffer.get(lChildIdx)) {
             resChildIdx = rChildIdx;
         }
+        if (buffer.get(resChildIdx) < buffer.get(idx))
+            swap(idx, resChildIdx);
 
-        swap(idx, resChildIdx);
         siftDown(resChildIdx);
     }
 
     private void swap(int idx1, int idx2){
         int tmp = buffer.get(idx1);
-        buffer.add(idx1, buffer.get(idx2));
-        buffer.add(idx2, tmp);
+        buffer.set(idx1, buffer.get(idx2));
+        buffer.set(idx2, tmp);
     }
 
     public void Insert(int value){
         buffer.add(value);
         siftUP(size++);
+        System.out.print('i');
+        System.out.println(buffer);
     }
 
     public Integer Get(){
@@ -65,6 +67,24 @@ public class Heap {
         swap(0, --size);
         buffer.remove(size);
         siftDown(0);
+        System.out.print('g');
+        System.out.println(buffer);
+        return res;
+    }
+
+    public static int[] Sort(int[] arr){
+        int len = arr.length;
+        int[] res = new int[len];
+        Heap h = new Heap(len);
+        for (int i = 0; i < len; i++)
+            h.Insert(arr[i]);
+
+        for (int i = 0; i < len; i++){
+            Integer num = h.Get();
+            if (num==null)
+                return res;
+            res[i] = num;
+        }
         return res;
     }
 }

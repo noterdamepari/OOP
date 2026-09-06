@@ -28,24 +28,24 @@ public class Heap {
      * @param idx айди ребенка.
      * @return айди родителя
      */
-    private int getParentIdx(int idx){
+    private int getParentIdx(int idx) {
         return (idx - 1) / 2;
     }
 
     /**
-     * SiftUP.
+     * SiftUp.
      *
      * @param idx айди элемента.
      */
-    private void siftUP(int idx){
-        if (idx == 0){
+    private void siftUp(int idx) {
+        if (idx == 0) {
             return;
         }
 
         int parentIndex = getParentIdx(idx);
-        if (buffer.get(idx) < buffer.get(parentIndex)){
+        if (buffer.get(idx) < buffer.get(parentIndex)) {
             swap(idx, parentIndex);
-            siftUP(parentIndex);
+            siftUp(parentIndex);
         }
     }
 
@@ -54,17 +54,18 @@ public class Heap {
      *
      * @param idx айди элемента.
      */
-    private void siftDown(int idx){
+    private void siftDown(int idx) {
         int leftChildIndex = idx * 2 + 1;
-        if (leftChildIndex>=size)
+        if (leftChildIndex >= size){
             return;
+        }
 
         int rightChildIndex = idx * 2 + 2;
         int resultChildIndex = leftChildIndex;
         if (rightChildIndex < size && buffer.get(rightChildIndex) < buffer.get(leftChildIndex)) {
             resultChildIndex = rightChildIndex;
         }
-        if (buffer.get(resultChildIndex) < buffer.get(idx)){
+        if (buffer.get(resultChildIndex) < buffer.get(idx)) {
             swap(idx, resultChildIndex);
         }
 
@@ -77,7 +78,7 @@ public class Heap {
      * @param idx1 айди первого элемента.
      * @param idx2 айди первого элемента.
      */
-    private void swap(int idx1, int idx2){
+    private void swap(int idx1, int idx2) {
         int tmp = buffer.get(idx1);
         buffer.set(idx1, buffer.get(idx2));
         buffer.set(idx2, tmp);
@@ -88,9 +89,9 @@ public class Heap {
      *
      * @param value добавляемый элемент.
      */
-    public void insert(int value){
+    public void insert(int value) {
         buffer.add(value);
-        siftUP(size++);
+        siftUp(size++);
     }
 
     /**
@@ -98,12 +99,12 @@ public class Heap {
      *
      * @return полученный элемент
      */
-    public Integer get(){
-        if (size == 0){
+    public Integer get() {
+        if (size == 0) {
             System.out.println("panic: heap is empty");
             return null;
         }
-        int res = buffer.get(0);
+        final int res = buffer.get(0);
         swap(0, --size);
         buffer.remove(size);
         siftDown(0);
@@ -116,14 +117,16 @@ public class Heap {
      * @param arr входной массив.
      * @return отсортированный массив.
      */
-    public static int[] sort(int[] arr){
+    public static int[] sort(int[] arr) {
         int len = arr.length;
-        int[] res = new int[len];
         Heap h = new Heap(len);
+
         for (int i = 0; i < len; i++) {
             h.insert(arr[i]);
         }
-        for (int i = 0; i < len; i++){
+
+        int[] res = new int[len];
+        for (int i = 0; i < len; i++) {
             Integer num = h.get();
             if (num == null){
                 return res;

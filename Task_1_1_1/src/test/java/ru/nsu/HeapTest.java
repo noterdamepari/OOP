@@ -6,59 +6,59 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class HeapTest {
     @Test
-    void SimpleSortTest() {
+    void simpleSortTest() {
         int[] arr = new int[]{2,2,2,3,1,-6};
         int[] sortedArr = new int[]{-6,1,2,2,2,3};
-        var res = Heap.Sort(arr);
+        var res = Heap.sort(arr);
         assertArrayEquals(sortedArr, res);
     }
 
     @Test
-    void VoidSortTest() {
+    void voidSortTest() {
         int[] arr = new int[]{};
-        var res = Heap.Sort(arr);
+        var res = Heap.sort(arr);
         assertArrayEquals(new int[]{}, res);
     }
 
     @Test
-    void SimpleHeapTest(){
+    void simpleHeapTest(){
         Heap h = new Heap(null);
-        h.Insert(5);
-        h.Insert(8);
-        h.Insert(1337);
-        h.Insert(567);
-        h.Insert(4);
+        h.insert(5);
+        h.insert(8);
+        h.insert(1337);
+        h.insert(567);
+        h.insert(4);
 
-        assertEquals(4, h.Get());
-        assertEquals(5, h.Get());
-        assertEquals(8, h.Get());
-        assertEquals(567, h.Get());
-        assertEquals(1337, h.Get());
+        assertEquals(4, h.get());
+        assertEquals(5, h.get());
+        assertEquals(8, h.get());
+        assertEquals(567, h.get());
+        assertEquals(1337, h.get());
     }
 
     @Test
-    void OnlyOneHeapTest(){
+    void onlyOneHeapTest(){
         Heap h = new Heap(null);
-        h.Insert(13);
-        var res = h.Get();
+        h.insert(13);
+        var res = h.get();
         assertEquals(13, res);
     }
 
     @Test
-    void EmptyHeapTest(){
+    void emptyHeapTest(){
         Heap h = new Heap(null);
-        var res = h.Get();
+        var res = h.get();
         assertNull(res);
     }
 
     @Test
-    void LargeHeapTest(){
+    void largeHeapTest(){
         Heap h = new Heap(null);
         for (int i = 5000; i >= 0; i--){
-             h.Insert(i);
+            h.insert(i);
         }
         for (int i = 0; i < 5001; i++){
-            assertEquals(i, h.Get());
+            assertEquals(i, h.get());
         }
     }
 }

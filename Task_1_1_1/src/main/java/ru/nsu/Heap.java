@@ -2,10 +2,18 @@ package ru.nsu;
 
 import java.util.ArrayList;
 
+/**
+ * Heap class.
+ */
 public class Heap {
     private final ArrayList<Integer> buffer;
     private int size;
 
+    /**
+     * Heap constructor.
+     *
+     * @param cap начальный размер кучи.
+     */
     public Heap(Integer cap) {
         if (cap == null){
             cap = 16;
@@ -14,71 +22,112 @@ public class Heap {
         size = 0;
     }
 
+    /**
+     * Get the id of parent element.
+     *
+     * @param idx айди ребенка.
+     * @return айди родителя
+     */
     private int getParentIdx(int idx){
-        return (idx-1)/2;
+        return (idx - 1) / 2;
     }
 
+    /**
+     * SiftUP.
+     *
+     * @param idx айди элемента.
+     */
     private void siftUP(int idx){
-        if (idx == 0)
+        if (idx == 0){
             return;
+        }
 
-        int parentIdx = getParentIdx(idx);
-        if (buffer.get(idx) < buffer.get(parentIdx)){
-            swap(idx, parentIdx);
-            siftUP(parentIdx);
+        int parentIndex = getParentIdx(idx);
+        if (buffer.get(idx) < buffer.get(parentIndex)){
+            swap(idx, parentIndex);
+            siftUP(parentIndex);
         }
     }
 
+    /**
+     * SiftDown.
+     *
+     * @param idx айди элемента.
+     */
     private void siftDown(int idx){
-        int lChildIdx = idx*2+1;
-        if (lChildIdx>=size)
+        int leftChildIndex = idx * 2 + 1;
+        if (leftChildIndex>=size)
             return;
 
-        int rChildIdx = idx*2+2;
-        int resChildIdx = lChildIdx;
-        if (rChildIdx < size && buffer.get(rChildIdx) < buffer.get(lChildIdx)) {
-            resChildIdx = rChildIdx;
+        int rightChildIndex = idx * 2 + 2;
+        int resultChildIndex = leftChildIndex;
+        if (rightChildIndex < size && buffer.get(rightChildIndex) < buffer.get(leftChildIndex)) {
+            resultChildIndex = rightChildIndex;
         }
-        if (buffer.get(resChildIdx) < buffer.get(idx))
-            swap(idx, resChildIdx);
+        if (buffer.get(resultChildIndex) < buffer.get(idx)){
+            swap(idx, resultChildIndex);
+        }
 
-        siftDown(resChildIdx);
+        siftDown(resultChildIndex);
     }
 
+    /**
+     * Swap.
+     *
+     * @param idx1 айди первого элемента.
+     * @param idx2 айди первого элемента.
+     */
     private void swap(int idx1, int idx2){
         int tmp = buffer.get(idx1);
         buffer.set(idx1, buffer.get(idx2));
         buffer.set(idx2, tmp);
     }
 
-    public void Insert(int value){
+    /**
+     * Insert to Heap Func.
+     *
+     * @param value добавляемый элемент.
+     */
+    public void insert(int value){
         buffer.add(value);
         siftUP(size++);
     }
 
-    public Integer Get(){
+    /**
+     * Get from Heap Func.
+     *
+     * @return полученный элемент
+     */
+    public Integer get(){
         if (size == 0){
             System.out.println("panic: heap is empty");
             return null;
         }
-        int res = buffer.getFirst();
+        int res = buffer.get(0);
         swap(0, --size);
         buffer.remove(size);
         siftDown(0);
         return res;
     }
 
-    public static int[] Sort(int[] arr){
+    /**
+     * Get from Heap Func.
+     *
+     * @param arr входной массив.
+     * @return отсортированный массив.
+     */
+    public static int[] sort(int[] arr){
         int len = arr.length;
         int[] res = new int[len];
         Heap h = new Heap(len);
-        for (int i = 0; i < len; i++)
-            h.Insert(arr[i]);
-
+        for (int i = 0; i < len; i++) {
+            h.insert(arr[i]);
+        }
         for (int i = 0; i < len; i++){
-            Integer num = h.Get();
-            if (num==null)
+            Integer num = h.get();
+            if (num == null){
                 return res;
+            }
             res[i] = num;
         }
         return res;

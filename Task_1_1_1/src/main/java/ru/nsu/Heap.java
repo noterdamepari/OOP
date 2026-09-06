@@ -15,7 +15,7 @@ public class Heap {
      * @param cap начальный размер кучи.
      */
     public Heap(Integer cap) {
-        if (cap == null){
+        if (cap == null) {
             cap = 16;
         }
         buffer = new ArrayList<Integer>(cap);
@@ -56,7 +56,7 @@ public class Heap {
      */
     private void siftDown(int idx) {
         int leftChildIndex = idx * 2 + 1;
-        if (leftChildIndex >= size){
+        if (leftChildIndex >= size) {
             return;
         }
 
@@ -128,7 +128,7 @@ public class Heap {
         int[] res = new int[len];
         for (int i = 0; i < len; i++) {
             Integer num = h.get();
-            if (num == null){
+            if (num == null) {
                 return res;
             }
             res[i] = num;

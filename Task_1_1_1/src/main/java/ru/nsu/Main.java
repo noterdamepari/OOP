@@ -21,5 +21,5 @@ public class Main {
         }
         arr = Heap.sort(arr);
         System.out.println(Arrays.toString(arr));
-   }
+    }
 }

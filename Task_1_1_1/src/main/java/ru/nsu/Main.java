@@ -19,7 +19,7 @@ public class Main {
         for (int i = 0; i < num; i++) {
             arr[i] = in.nextInt();
         }
-        arr = Heap.sort(arr);
+        Heap.sort(arr);
         System.out.println(Arrays.toString(arr));
     }
 }

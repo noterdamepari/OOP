@@ -9,34 +9,30 @@ public class Heap {
     private final ArrayList<Integer> buffer;
     private int size;
 
+
     /**
      * Heap constructor.
+     */
+    public Heap() {
+        this(16);
+    }
+
+    /**
+     * Heap constructor with capacity param.
      *
      * @param cap начальный размер кучи.
      */
-    public Heap(Integer cap) {
-        if (cap == null) {
-            cap = 16;
-        }
+    public Heap(int cap) {
         buffer = new ArrayList<Integer>(cap);
         size = 0;
     }
 
-    /**
-     * Get the id of parent element.
-     *
-     * @param idx айди ребенка.
-     * @return айди родителя
-     */
+    // получение id ребенка
     private int getParentIdx(int idx) {
         return (idx - 1) / 2;
     }
 
-    /**
-     * SiftUp.
-     *
-     * @param idx айди элемента.
-     */
+    // siftup method
     private void siftUp(int idx) {
         if (idx == 0) {
             return;
@@ -49,11 +45,7 @@ public class Heap {
         }
     }
 
-    /**
-     * SiftDown.
-     *
-     * @param idx айди элемента.
-     */
+    // siftdown method
     private void siftDown(int idx) {
         int leftChildIndex = idx * 2 + 1;
         if (leftChildIndex >= size) {
@@ -72,12 +64,7 @@ public class Heap {
         siftDown(resultChildIndex);
     }
 
-    /**
-     * Swap.
-     *
-     * @param idx1 айди первого элемента.
-     * @param idx2 айди первого элемента.
-     */
+    // value swap
     private void swap(int idx1, int idx2) {
         int tmp = buffer.get(idx1);
         buffer.set(idx1, buffer.get(idx2));
@@ -99,10 +86,9 @@ public class Heap {
      *
      * @return полученный элемент
      */
-    public Integer get() {
+    public int get() {
         if (size == 0) {
-            System.out.println("panic: heap is empty");
-            return null;
+            throw new IllegalStateException("panic: heap is empty");
         }
         final int res = buffer.get(0);
         swap(0, --size);
@@ -114,25 +100,19 @@ public class Heap {
     /**
      * Get from Heap Func.
      *
-     * @param arr входной массив.
-     * @return отсортированный массив.
+     * @param arr массив для сортировки.
      */
-    public static int[] sort(int[] arr) {
+    public static void sort(int[] arr) {
         int len = arr.length;
         Heap h = new Heap(len);
 
-        for (int i = 0; i < len; i++) {
-            h.insert(arr[i]);
+        for (int el : arr) {
+            h.insert(el);
         }
 
-        int[] res = new int[len];
         for (int i = 0; i < len; i++) {
-            Integer num = h.get();
-            if (num == null) {
-                return res;
-            }
-            res[i] = num;
+            int num = h.get();
+            arr[i] = num;
         }
-        return res;
     }
 }

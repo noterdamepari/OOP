@@ -21,7 +21,7 @@ public class Game {
         dealer.printHand();
     }
 
-    public void playRound(){
+    public GameResult playRound(){
         deck = new Deck(deck_cnt);
         player = new Player();
         dealer = new Player();
@@ -38,13 +38,13 @@ public class Game {
 
         if (player.isBlackJack() && dealer.isBlackJack()){
             System.out.println("Ничья");
-            return;
+            return GameResult.DRAW;
         } else if (dealer.isBlackJack()){
             System.out.println("Дилер получил BlackJack, вы проиграли");
-            return;
+            return GameResult.DEALER_WIN;
         } else if (player.isBlackJack()){
             System.out.println("BlackJack! Вы выиграли");
-            return;
+            return GameResult.PLAYER_WIN;
         }
         //
 
@@ -61,7 +61,7 @@ public class Game {
 
             if (player.getSum() > 21){
                 System.out.println("Перебор, вы проиграли!");
-                return;
+                return GameResult.DEALER_WIN;
             }
         }
 
@@ -81,15 +81,18 @@ public class Game {
 
             if (dealer.getSum() > 21){
                 System.out.println("Перебор, дилер проиграл!");
-                return;
+                return GameResult.PLAYER_WIN;
             }
         }
 
         if (player.getSum() > dealer.getSum()){
             System.out.println("Ваша сумма очков больше чем у дилера, вы выиграли!");
-            return;
-        } else {
+            return GameResult.PLAYER_WIN;
+        } else if (player.getSum() < dealer.getSum()){
             System.out.println("Cумма очков дилера больше, вы проиграли!");
+            return GameResult.DEALER_WIN;
+        } else {
+            return GameResult.DRAW;
         }
     }
 }

@@ -15,8 +15,8 @@ public class Player {
     public void addCard(Card card){
         hand.add(card);
         cnt++;
-        sum += card.value;
-        if (card.rank == Rank.ACE){
+        sum += card.getValue();
+        if (card.getRank() == Rank.ACE){
             aceCnt++;
             aces.add(cnt-1);
         }
@@ -31,12 +31,11 @@ public class Player {
         }
     }
 
+    public boolean isBlackJack(){
+        return sum == 21;
+    }
+
     public void printHand(){
-        System.out.println(sum);
-        System.out.println(aceCnt);
-        for (int i = 0; i < hand.size(); i++){
-            hand.get(i).print();
-            System.out.print(' ');
-        }
+        System.out.println(hand.toString() + " -> " + sum);
     }
 }

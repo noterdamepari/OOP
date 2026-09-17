@@ -4,19 +4,19 @@ import lombok.Getter;
 
 @Getter
 public enum Rank {
-    TW0(2, "2"),
-    THREE(3, "3"),
-    FOUR(4, "4"),
-    FIVE(5, "5"),
-    SIX(6, "6"),
-    SEVEN(7, "7"),
-    EIGHT(8, "8"),
-    NINE(9, "9"),
-    TEN(10, "10"),
-    JACK(10, "Jack"),
-    QUEEN(10, "Queen"),
-    KING(10, "King"),
-    ACE(11, "Ace");
+    TW0(2, "Двойка"),
+    THREE(3, "Тройка"),
+    FOUR(4, "Четверка"),
+    FIVE(5, "Пятерка"),
+    SIX(6, "Шестерка"),
+    SEVEN(7, "Семерка"),
+    EIGHT(8, "Восьмерка"),
+    NINE(9, "Девятка"),
+    TEN(10, "Десятка"),
+    JACK(10, "Валет"),
+    QUEEN(10, "Дама"),
+    KING(10, "Король"),
+    ACE(11, "Туз");
 
     private final int value;
     private final String name;

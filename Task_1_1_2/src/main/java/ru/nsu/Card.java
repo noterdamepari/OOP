@@ -1,11 +1,17 @@
 package ru.nsu;
 
-public class Card {
-    public String suit;
-    public Rank rank;
-    public int value;
+import lombok.Getter;
+import lombok.Setter;
 
-    Card(String suit, Rank rank){
+@Getter
+@Setter
+public class Card {
+    private Suit suit;
+    private Rank rank;
+    private int value;
+    private boolean hidden = false;
+
+    Card(Suit suit, Rank rank){
         this.suit = suit;
         this.rank = rank;
         this.value = rank.getValue();
@@ -17,8 +23,15 @@ public class Card {
         }
     }
 
-
-    public void print(){
-        System.out.printf("%s %s %d\n", suit, rank, value);
+    @Override
+    public String toString() {
+        String res;
+        if (!hidden){
+            res = String.format("%s %s (%d)", rank.getName(), suit.getName(), value);
+        } else {
+             res = "<закрытая карта>";
+        }
+        return res;
     }
+
 }

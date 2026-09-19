@@ -4,6 +4,9 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 
+/**
+ * Player class.
+ */
 @Getter
 public class Player {
     private ArrayList<Card> hand = new ArrayList<>();
@@ -12,6 +15,11 @@ public class Player {
     private int sum;
     private int aceCnt;
 
+    /**
+     * Добавляет карту в руку игрока.
+     *
+     * @param card карта, добавляемая в руку
+     */
     public void addCard(Card card){
         hand.add(card);
         cnt++;
@@ -31,10 +39,31 @@ public class Player {
         }
     }
 
+    /**
+     * Проверяет, является ли текущая рука игрока блэкджеком.
+     *
+     * @return true, если игрок имеет блэкджек, иначе false
+     */
     public boolean isBlackJack(){
         return sum == 21;
     }
 
+    /**
+     * Печатает руку игрока.
+     *
+     * @param hideSum отображение суммы руки
+     */
+    public void printHand(boolean hideSum){
+        if (hideSum){
+            System.out.println(hand.toString());
+        } else {
+            System.out.println(hand.toString() + " -> " + sum);
+        }
+    }
+
+    /**
+     * Печатает руку игрока.
+     */
     public void printHand(){
         System.out.println(hand.toString() + " -> " + sum);
     }

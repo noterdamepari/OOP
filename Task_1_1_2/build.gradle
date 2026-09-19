@@ -1,5 +1,15 @@
 plugins {
     id 'java'
+    id 'jacoco'
+}
+
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'ru.nsu.Main'
+        )
+    }
 }
 
 group = 'ru.nsu'
@@ -19,4 +29,21 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+jacocoTestReport {
+    dependsOn test
+
+    classDirectories.setFrom(
+            files(classDirectories.files.collect {
+                fileTree(dir: it, exclude: [
+                        'ru/nsu/Main.class'
+                ])
+            })
+    )
+
+    reports {
+        xml.required = true
+    }
+
 }

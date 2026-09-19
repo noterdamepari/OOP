@@ -3,6 +3,9 @@ package ru.nsu;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Card class.
+ */
 @Getter
 @Setter
 public class Card {
@@ -11,18 +14,34 @@ public class Card {
     private int value;
     private boolean hidden = false;
 
-    Card(Suit suit, Rank rank){
+    /**
+     * Создаёт новую игральную карту.
+     *
+     * @param suit масть карты
+     * @param rank достоинство карты
+     */
+    public Card(Suit suit, Rank rank){
         this.suit = suit;
         this.rank = rank;
         this.value = rank.getValue();
     }
 
+    /**
+     * Изменяет значение туза с 11 на 1.
+     * Метод применяется только к картам достоинства ACE.
+     */
     public void setAceToOne(){
         if (rank == Rank.ACE){
             value = 1;
         }
     }
 
+    /**
+     * Возвращает строковое представление карты.
+     *
+     * @return название карты, масть и её значение,
+     *         либо сообщение о закрытой карте
+     */
     @Override
     public String toString() {
         String res;

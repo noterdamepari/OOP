@@ -2,40 +2,33 @@ package ru.nsu;
 
 import java.util.Scanner;
 
+
+/**
+ * Game class.
+ */
 public class Game {
-    private Scanner in;
+    private final Scanner in;
     private Player player;
     private Player dealer;
     private Deck deck;
     private int deck_cnt;
 
-    public Game(Scanner in, int deck_cnt){
+    /**
+     * Game constructor.
+     */
+    public Game(Scanner in, Deck deck) {
         this.in = in;
-        this.deck_cnt = deck_cnt;
+        this.deck = deck;
     }
 
-    private void printHands(){
+    private void printHands(boolean hideDealerSum){
         System.out.print("\tВаши карты: ");
         player.printHand();
         System.out.print("\tКарты дилера: ");
-        dealer.printHand();
+        dealer.printHand(hideDealerSum);
     }
 
-    public GameResult playRound(){
-        deck = new Deck(deck_cnt);
-        player = new Player();
-        dealer = new Player();
-
-        // init
-        player.addCard(new Card(Suit.HEARTS, Rank.ACE));
-        player.addCard(deck.TakeCard());
-
-        dealer.addCard(deck.TakeCard());
-        dealer.addCard(deck.TakeCard(true));
-
-        System.out.println("Дилер раздал карты");
-        printHands();
-
+    private GameResult checkBlackJack(){
         if (player.isBlackJack() && dealer.isBlackJack()){
             System.out.println("Ничья");
             return GameResult.DRAW;
@@ -46,23 +39,54 @@ public class Game {
             System.out.println("BlackJack! Вы выиграли");
             return GameResult.PLAYER_WIN;
         }
+        return null;
+    }
+
+
+    /**
+     * Запускает один раунд игры в блэкджек.
+     *
+     * @return результат раунда: победа игрока, победа дилера
+     *         или ничья
+     */
+    public GameResult playRound(){
+        player = new Player();
+        dealer = new Player();
+
+        // init
+        player.addCard(deck.takeCard());
+        player.addCard(deck.takeCard());
+
+        dealer.addCard(deck.takeCard());
+        dealer.addCard(deck.takeCard(true));
+
+        System.out.println("Дилер раздал карты");
+        printHands(true);
+
+        GameResult res = checkBlackJack();
+
+        if (res != null){
+            return res;
+        }
         //
 
         // player move
         System.out.print("Ваш ход\n-------\n");
         System.out.print("Введите \"1\", чтобы взять карту, и \"0\", чтобы остановиться...\n");
 
-        int something = in.nextInt();
-        while (something == 1){
-            Card card = deck.TakeCard();
+        int action = in.nextInt();
+        while (action == 1){
+            Card card = deck.takeCard();
             System.out.println("Вы открыли карту: " + card);
             player.addCard(card);
-            printHands();
+            printHands(true);
 
             if (player.getSum() > 21){
                 System.out.println("Перебор, вы проиграли!");
                 return GameResult.DEALER_WIN;
             }
+            System.out.print("Введите \"1\", чтобы взять карту, и \"0\", чтобы остановиться...\n");
+            action = in.nextInt();
         }
 
         // dealer move
@@ -71,13 +95,13 @@ public class Game {
         hiddenCard.setHidden(false);
         dealer.getHand().set(1, hiddenCard);
         System.out.println("Дилер открыл карту " + hiddenCard);
-        printHands();
+        printHands(false);
 
         while (dealer.getSum() < 17){
-            Card card = deck.TakeCard();
+            Card card = deck.takeCard();
             System.out.println("Дилер открыл карту " + card);
             dealer.addCard(card);
-            printHands();
+            printHands(false);
 
             if (dealer.getSum() > 21){
                 System.out.println("Перебор, дилер проиграл!");

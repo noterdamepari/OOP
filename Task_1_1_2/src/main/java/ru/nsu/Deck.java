@@ -2,13 +2,25 @@ package ru.nsu;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
+/**
+ * Deck class.
+ */
 public class Deck {
     private ArrayList<Card> storage = new ArrayList<>();
     // private Card[] storage = new Card[52];
 
+    /**
+     * Создаёт колоду, содержащую указанное количество стандартных колод.
+     *
+     * @param cnt количество стандартных колод
+     */
     public Deck(int cnt){
         int idx = 0;
+        if (cnt == 0){
+            throw new IllegalStateException("Количество колод не может быть нулевым");
+        }
         Suit[] suits = {Suit.DIAMONDS, Suit.SPADES, Suit.CLUBS, Suit.HEARTS};
         Rank[] ranks = {Rank.TW0, Rank.THREE, Rank.FOUR, Rank.FIVE, Rank.SIX, Rank.SEVEN, Rank.EIGHT,
         Rank.NINE, Rank.TEN, Rank.JACK, Rank.QUEEN, Rank.KING, Rank.ACE};
@@ -23,15 +35,40 @@ public class Deck {
         Collections.shuffle(storage);
     }
 
-    public void PrintDeck(){
+    /**
+     * Создаёт колоду, содержащую указанные карты.
+     *
+     * @param cards массив карт
+     */
+    public Deck(List<Card> cards) {
+        storage.addAll(cards);
+    }
+
+    public void printDeck(){
         System.out.println(storage.toString());
     }
 
-    public Card TakeCard(){
+    /**
+     * Извлекает верхнюю карту из колоды.
+     *
+     * @return извлечённая карта
+     * @throws IllegalStateException если колода пуста
+     */
+    public Card takeCard(){
+        if (storage.isEmpty()) {
+            throw new IllegalStateException("Колода закончилась");
+        }
         return storage.remove(0);
     }
 
-    public Card TakeCard(boolean hidden){
+    /**
+     * Извлекает верхнюю карту и устанавливает её видимость.
+     *
+     * @param hidden true, если карта должна быть закрыта
+     * @return извлечённая карта
+     * @throws IllegalStateException если колода пуста
+     */
+    public Card takeCard(boolean hidden){
         Card card = storage.remove(0);
         card.setHidden(hidden);
         return card;

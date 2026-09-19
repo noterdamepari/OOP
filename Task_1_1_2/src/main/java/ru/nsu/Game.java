@@ -27,7 +27,7 @@ public class Game {
         dealer.printHand(hideDealerSum);
     }
 
-    private GameResult checkBlackJack(){
+    private GameResult checkBlackJack() {
         if (player.isBlackJack() && dealer.isBlackJack()) {
             System.out.println("Ничья");
             return GameResult.DRAW;
@@ -80,7 +80,7 @@ public class Game {
             player.addCard(card);
             printHands(true);
 
-            if (player.getSum() > 21){
+            if (player.getSum() > 21) {
                 System.out.println("Перебор, вы проиграли!");
                 return GameResult.DEALER_WIN;
             }

@@ -17,7 +17,7 @@ public class Deck {
      *
      * @param cnt количество стандартных колод
      */
-    public Deck(int cnt){
+    public Deck(int cnt) {
         int idx = 0;
         if (cnt == 0) {
             throw new IllegalStateException("Количество колод не может быть нулевым");

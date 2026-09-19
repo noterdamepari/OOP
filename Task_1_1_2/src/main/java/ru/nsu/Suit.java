@@ -2,6 +2,10 @@ package ru.nsu;
 
 import lombok.Getter;
 
+
+/**
+ * Suits.
+ */
 @Getter
 public enum Suit {
     HEARTS("Черви"),

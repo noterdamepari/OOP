@@ -2,6 +2,9 @@ package ru.nsu;
 
 import lombok.Getter;
 
+/**
+ * Ranks.
+ */
 @Getter
 public enum Rank {
     TW0(2, "Двойка"),

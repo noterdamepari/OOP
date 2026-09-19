@@ -2,7 +2,15 @@ package ru.nsu;
 
 import java.util.Scanner;
 
+
+/**
+ * Main class.
+ */
 public class Main {
+
+    /**
+     * Program entrypoint.
+     */
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int playerScore = 0;
@@ -17,6 +25,7 @@ public class Main {
             switch (game.playRound()) {
                 case DEALER_WIN -> dealerScore++;
                 case PLAYER_WIN -> playerScore++;
+                default -> {}
             }
             System.out.println("Счет " + playerScore + ":" + dealerScore);
             System.out.println("Для остановки введите 0, чтобы продолжить 1");

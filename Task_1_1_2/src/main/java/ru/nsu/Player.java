@@ -1,8 +1,9 @@
 package ru.nsu;
 
-import lombok.Getter;
 
 import java.util.ArrayList;
+import lombok.Getter;
+
 
 /**
  * Player class.
@@ -20,16 +21,16 @@ public class Player {
      *
      * @param card карта, добавляемая в руку
      */
-    public void addCard(Card card){
+    public void addCard(Card card) {
         hand.add(card);
         cnt++;
         sum += card.getValue();
-        if (card.getRank() == Rank.ACE){
+        if (card.getRank() == Rank.ACE) {
             aceCnt++;
-            aces.add(cnt-1);
+            aces.add(cnt - 1);
         }
 
-        while (sum > 21 && aceCnt > 0){
+        while (sum > 21 && aceCnt > 0) {
             sum -= 10;
             int idx = aces.remove(0);
             Card ace = hand.remove(idx);

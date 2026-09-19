@@ -1,13 +1,15 @@
 package ru.nsu;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Scanner;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
+
     @Test
     void playerBlackjackShouldWin() {
         List<Card> cards = List.of(
@@ -27,6 +29,7 @@ class GameTest {
                 game.playRound()
         );
     }
+
     @Test
     void dealerShouldWinWithBlackjack() {
         Deck deck = new Deck(List.of(
@@ -40,6 +43,7 @@ class GameTest {
 
         assertEquals(GameResult.DEALER_WIN, game.playRound());
     }
+
     @Test
     void playerShouldLoseWhenBust() {
         List<Card> cards = List.of(
@@ -62,6 +66,7 @@ class GameTest {
                 game.playRound()
         );
     }
+
     @Test
     void playerShouldWinWhenDealerBusts() {
         Deck deck = new Deck(List.of(
@@ -76,6 +81,7 @@ class GameTest {
 
         assertEquals(GameResult.PLAYER_WIN, game.playRound());
     }
+
     @Test
     void playerShouldWinWithHigherScore() {
         Deck deck = new Deck(List.of(
@@ -89,6 +95,7 @@ class GameTest {
 
         assertEquals(GameResult.PLAYER_WIN, game.playRound());
     }
+
     @Test
     void dealerShouldWinWithHigherScore() {
         Deck deck = new Deck(List.of(
@@ -102,6 +109,7 @@ class GameTest {
 
         assertEquals(GameResult.DEALER_WIN, game.playRound());
     }
+
     @Test
     void gameShouldEndInDrawWhenScoresAreEqual() {
         Deck deck = new Deck(List.of(
@@ -115,6 +123,7 @@ class GameTest {
 
         assertEquals(GameResult.DRAW, game.playRound());
     }
+
     @Test
     void bothPlayersShouldGetDrawWithBlackjack() {
         Deck deck = new Deck(List.of(
@@ -128,6 +137,7 @@ class GameTest {
 
         assertEquals(GameResult.DRAW, game.playRound());
     }
+
     @Test
     void aceShouldCountAsOneWhenNecessary() {
         Deck deck = new Deck(List.of(

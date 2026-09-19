@@ -1,12 +1,14 @@
 package ru.nsu;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class CardTest {
+
     @Test
     void cardShouldHaveCorrectSuitAndRank() {
         Card card = new Card(Suit.HEARTS, Rank.KING);
@@ -14,18 +16,21 @@ class CardTest {
         assertEquals(Suit.HEARTS, card.getSuit());
         assertEquals(Rank.KING, card.getRank());
     }
+
     @Test
     void cardShouldHaveValueFromRank() {
         Card card = new Card(Suit.HEARTS, Rank.KING);
 
         assertEquals(Rank.KING.getValue(), card.getValue());
     }
+
     @Test
     void cardShouldNotBeHiddenByDefault() {
         Card card = new Card(Suit.HEARTS, Rank.KING);
 
         assertFalse(card.isHidden());
     }
+
     @Test
     void aceShouldChangeValueToOne() {
         Card card = new Card(Suit.HEARTS, Rank.ACE);
@@ -36,6 +41,7 @@ class CardTest {
 
         assertEquals(1, card.getValue());
     }
+
     @Test
     void nonAceShouldNotChangeValue() {
         Card card = new Card(Suit.HEARTS, Rank.KING);
@@ -46,6 +52,7 @@ class CardTest {
 
         assertEquals(originalValue, card.getValue());
     }
+
     @Test
     void hiddenCardShouldHaveCorrectString() {
         Card card = new Card(Suit.HEARTS, Rank.KING);
@@ -53,6 +60,7 @@ class CardTest {
 
         assertEquals("<закрытая карта>", card.toString());
     }
+
     @Test
     void visibleCardShouldHaveCorrectString() {
         Card card = new Card(Suit.HEARTS, Rank.KING);
@@ -66,6 +74,7 @@ class CardTest {
 
         assertEquals(expected, card.toString());
     }
+
     @Test
     void setHiddenShouldChangeHiddenState() {
         Card card = new Card(Suit.HEARTS, Rank.KING);

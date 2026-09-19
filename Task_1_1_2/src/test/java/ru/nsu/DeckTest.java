@@ -1,10 +1,15 @@
 package ru.nsu;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class DeckTest {
+
     @Test
     void oneDeckShouldContain52Cards() {
         Deck deck = new Deck(1);
@@ -20,6 +25,7 @@ class DeckTest {
 
         assertThrows(IllegalStateException.class, () -> deck.takeCard());
     }
+
     @Test
     void oneDeckShouldContainFourOfEachRank() {
         Deck deck = new Deck(1);
@@ -35,6 +41,7 @@ class DeckTest {
             assertEquals(4, count);
         }
     }
+
     @Test
     void oneDeckShouldContainThirteenCardsOfEachSuit() {
         Deck deck = new Deck(1);
@@ -50,6 +57,7 @@ class DeckTest {
             assertEquals(13, count);
         }
     }
+
     @Test
     void takenCardShouldBeVisibleByDefault() {
         Deck deck = new Deck(1);
@@ -58,10 +66,12 @@ class DeckTest {
 
         assertFalse(card.isHidden());
     }
+
     @Test
     void deckWithZeroCountShouldBeEmpty() {
         assertThrows(IllegalStateException.class, () -> new Deck(0));
     }
+
     @Test
     void takeCardWithTrueShouldHideCard() {
         Deck deck = new Deck(1);

@@ -20,7 +20,7 @@ public class Card {
      * @param suit масть карты
      * @param rank достоинство карты
      */
-    public Card(Suit suit, Rank rank){
+    public Card(Suit suit, Rank rank) {
         this.suit = suit;
         this.rank = rank;
         this.value = rank.getValue();
@@ -30,8 +30,8 @@ public class Card {
      * Изменяет значение туза с 11 на 1.
      * Метод применяется только к картам достоинства ACE.
      */
-    public void setAceToOne(){
-        if (rank == Rank.ACE){
+    public void setAceToOne() {
+        if (rank == Rank.ACE) {
             value = 1;
         }
     }
@@ -48,7 +48,7 @@ public class Card {
         if (!hidden) {
             res = String.format("%s %s (%d)", rank.getName(), suit.getName(), value);
         } else {
-             res = "<закрытая карта>";
+            res = "<закрытая карта>";
         }
         return res;
     }

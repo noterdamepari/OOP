@@ -18,12 +18,12 @@ public class Deck {
      */
     public Deck(int cnt){
         int idx = 0;
-        if (cnt == 0){
+        if (cnt == 0) {
             throw new IllegalStateException("Количество колод не может быть нулевым");
         }
         Suit[] suits = {Suit.DIAMONDS, Suit.SPADES, Suit.CLUBS, Suit.HEARTS};
-        Rank[] ranks = {Rank.TW0, Rank.THREE, Rank.FOUR, Rank.FIVE, Rank.SIX, Rank.SEVEN, Rank.EIGHT,
-        Rank.NINE, Rank.TEN, Rank.JACK, Rank.QUEEN, Rank.KING, Rank.ACE};
+        Rank[] ranks = {Rank.TW0, Rank.THREE, Rank.FOUR, Rank.FIVE, Rank.SIX, Rank.SEVEN,
+            Rank.EIGHT, Rank.NINE, Rank.TEN, Rank.JACK, Rank.QUEEN, Rank.KING, Rank.ACE};
         // deck filling
         for (int i = 0; i < cnt; i++) {
             for (Suit suit : suits) {

@@ -44,7 +44,7 @@ public class Player {
      *
      * @return true, если игрок имеет блэкджек, иначе false
      */
-    public boolean isBlackJack(){
+    public boolean isBlackJack() {
         return sum == 21;
     }
 
@@ -53,8 +53,8 @@ public class Player {
      *
      * @param hideSum отображение суммы руки
      */
-    public void printHand(boolean hideSum){
-        if (hideSum){
+    public void printHand(boolean hideSum) {
+        if (hideSum) {
             System.out.println(hand.toString());
         } else {
             System.out.println(hand.toString() + " -> " + sum);
@@ -64,7 +64,7 @@ public class Player {
     /**
      * Печатает руку игрока.
      */
-    public void printHand(){
+    public void printHand() {
         System.out.println(hand.toString() + " -> " + sum);
     }
 }

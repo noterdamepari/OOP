@@ -10,7 +10,7 @@ public class Main {
         int roundCnt = 0;
 
         System.out.println("Добро пожаловать в Блэкджек!");
-        while (true){
+        while (true) {
             Deck deck = new Deck(1);
             Game game = new Game(in, deck);
             System.out.printf("\n\nРаунд %d\n", ++roundCnt);
@@ -21,7 +21,7 @@ public class Main {
             System.out.println("Счет " + playerScore + ":" + dealerScore);
             System.out.println("Для остановки введите 0, чтобы продолжить 1");
             int continueGame = in.nextInt();
-            if (continueGame != 1){
+            if (continueGame != 1) {
                 return;
             }
         }

@@ -25,9 +25,9 @@ public class Deck {
         Rank[] ranks = {Rank.TW0, Rank.THREE, Rank.FOUR, Rank.FIVE, Rank.SIX, Rank.SEVEN, Rank.EIGHT,
         Rank.NINE, Rank.TEN, Rank.JACK, Rank.QUEEN, Rank.KING, Rank.ACE};
         // deck filling
-        for (int i = 0; i < cnt; i++){
-            for (Suit suit : suits){
-                for (Rank rank : ranks){
+        for (int i = 0; i < cnt; i++) {
+            for (Suit suit : suits) {
+                for (Rank rank : ranks) {
                     storage.add(new Card(suit, rank));
                 }
             }
@@ -44,7 +44,7 @@ public class Deck {
         storage.addAll(cards);
     }
 
-    public void printDeck(){
+    public void printDeck() {
         System.out.println(storage.toString());
     }
 
@@ -54,7 +54,7 @@ public class Deck {
      * @return извлечённая карта
      * @throws IllegalStateException если колода пуста
      */
-    public Card takeCard(){
+    public Card takeCard() {
         if (storage.isEmpty()) {
             throw new IllegalStateException("Колода закончилась");
         }
@@ -68,7 +68,7 @@ public class Deck {
      * @return извлечённая карта
      * @throws IllegalStateException если колода пуста
      */
-    public Card takeCard(boolean hidden){
+    public Card takeCard(boolean hidden) {
         Card card = storage.remove(0);
         card.setHidden(hidden);
         return card;

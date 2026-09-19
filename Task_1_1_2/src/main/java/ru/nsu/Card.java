@@ -45,7 +45,7 @@ public class Card {
     @Override
     public String toString() {
         String res;
-        if (!hidden){
+        if (!hidden) {
             res = String.format("%s %s (%d)", rank.getName(), suit.getName(), value);
         } else {
              res = "<закрытая карта>";

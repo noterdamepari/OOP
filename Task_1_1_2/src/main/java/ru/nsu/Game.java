@@ -2,7 +2,6 @@ package ru.nsu;
 
 import java.util.Scanner;
 
-
 /**
  * Game class.
  */

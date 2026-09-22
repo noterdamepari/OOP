@@ -18,8 +18,7 @@ public class Deck {
      * @param cnt количество стандартных колод
      */
     public Deck(int cnt) {
-        int idx = 0;
-        if (cnt == 0) {
+        if (cnt <= 0) {
             throw new IllegalStateException("Количество колод не может быть нулевым");
         }
         Suit[] suits = {Suit.DIAMONDS, Suit.SPADES, Suit.CLUBS, Suit.HEARTS};
@@ -70,7 +69,7 @@ public class Deck {
      * @throws IllegalStateException если колода пуста
      */
     public Card takeCard(boolean hidden) {
-        Card card = storage.remove(0);
+        Card card = takeCard();
         card.setHidden(hidden);
         return card;
     }

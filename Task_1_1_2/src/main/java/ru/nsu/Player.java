@@ -8,13 +8,14 @@ import lombok.Getter;
 /**
  * Player class.
  */
-@Getter
 public class Player {
     private ArrayList<Card> hand = new ArrayList<>();
     private ArrayList<Integer> aces = new ArrayList<>();
     private int cnt = 0;
+    @Getter
     private int sum;
     private int aceCnt;
+
 
     /**
      * Добавляет карту в руку игрока.
@@ -46,7 +47,7 @@ public class Player {
      * @return true, если игрок имеет блэкджек, иначе false
      */
     public boolean isBlackJack() {
-        return sum == 21;
+        return (sum == 21) && (hand.size() == 2);
     }
 
     /**
@@ -67,5 +68,17 @@ public class Player {
      */
     public void printHand() {
         System.out.println(hand.toString() + " -> " + sum);
+    }
+
+    /**
+     * Открывает скрытую карту.
+     *
+     * @param index индекс карты
+     * @return открытая карта
+     */
+    public Card revealCard(int index) {
+        Card card = hand.get(index);
+        card.setHidden(false);
+        return card;
     }
 }

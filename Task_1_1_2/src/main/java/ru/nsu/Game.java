@@ -89,9 +89,7 @@ public class Game {
 
         // dealer move
         System.out.print("Ход дилера\n-------\n");
-        Card hiddenCard = dealer.getHand().get(1);
-        hiddenCard.setHidden(false);
-        dealer.getHand().set(1, hiddenCard);
+        Card hiddenCard = dealer.revealCard(1);
         System.out.println("Дилер открыл карту " + hiddenCard);
         printHands(false);
 

@@ -1,7 +1,7 @@
 package ru.nsu;
 
+import java.util.List;
 import java.util.Scanner;
-
 
 /**
  * Main class.

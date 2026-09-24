@@ -14,27 +14,24 @@ public class Player {
      *
      * @param card карта, добавляемая в руку
      */
-    public void addCard(Card card){
+    public void addCard(Card card) {
         hand.add(card);
     }
 
     private HandState getHandState() {
         int sum = 0;
         int aceCnt = 0;
-
         for (Card card : hand) {
             sum += card.getValue();
             if (card.getRank() == Rank.ACE) {
                 aceCnt++;
             }
         }
-
         while (sum > 21 && aceCnt > 0) {
             sum -= 10;
             aceCnt--;
         }
-
-        return new HandState(sum,aceCnt);
+        return new HandState(sum, aceCnt);
     }
 
 
@@ -43,11 +40,10 @@ public class Player {
      *
      * @return кол-во очков
      */
-    public int getSum(){
+    public int getSum() {
         HandState state = getHandState();
         return state.sum;
     }
-
 
     /**
      * Проверяет, является ли текущая рука игрока блэкджеком.
@@ -58,15 +54,15 @@ public class Player {
         return (getSum() == 21) && (hand.size() == 2);
     }
 
-    private String handToString(boolean hideSum){
+    private String handToString(boolean hideSum) {
         HandState state = getHandState();
         int aceCnt = state.aceCnt;
         StringBuilder sb = new StringBuilder();
 
         sb.append('[');
 
-        for (Card card : hand){
-            if (sb.length() > 1){
+        for (Card card : hand) {
+            if (sb.length() > 1) {
                 sb.append(',');
             }
 
@@ -77,15 +73,23 @@ public class Player {
             Suit suit = card.getSuit();
             Rank rank = card.getRank();
             int value = card.getValue();
-            if (rank == Rank.ACE){
-                if (aceCnt > 0){
-                    sb.append(String.format("%s %s (%d)", suit.getName(), rank.getName(), card.getValue()));
+            if (rank == Rank.ACE) {
+                if (aceCnt > 0) {
+                    sb.append(String.format("%s %s (%d)",
+                            suit.getName(),
+                            rank.getName(),
+                            card.getValue()));
                     aceCnt--;
                 } else {
-                    sb.append(String.format("%s %s (1)", suit.getName(), rank.getName()));
+                    sb.append(String.format("%s %s (1)",
+                            suit.getName(),
+                            rank.getName()));
                 }
             } else {
-                sb.append(String.format("%s %s (%d)", suit.getName(), rank.getName(), card.getValue()));
+                sb.append(String.format("%s %s (%d)",
+                        suit.getName(),
+                        rank.getName(),
+                        card.getValue()));
             }
         }
         sb.append(']');

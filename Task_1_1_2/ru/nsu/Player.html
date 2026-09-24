@@ -106,22 +106,34 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addCard(ru.nsu.Card)" class="member-name-link">addCard</a><wbr>(<a href="Card.html" title="class in ru.nsu">Card</a>&nbsp;card)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Добавляет карту в руку игрока.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSum()" class="member-name-link">getSum</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Получение суммы очков игрока.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isBlackJack()" class="member-name-link">isBlackJack</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Проверяет, является ли текущая рука игрока блэкджеком.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#printHand()" class="member-name-link">printHand</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Печатает руку игрока.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#printHand(boolean)" class="member-name-link">printHand</a><wbr>(boolean&nbsp;hideSum)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Печатает руку игрока.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Card.html" title="class in ru.nsu">Card</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#revealCard(int)" class="member-name-link">revealCard</a><wbr>(int&nbsp;index)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Открывает скрытую карту.</div>
+</div>
 </div>
 </div>
 </div>
@@ -157,36 +169,64 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="addCard(ru.nsu.Card)">
 <h3>addCard</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addCard</span><wbr><span class="parameters">(<a href="Card.html" title="class in ru.nsu">Card</a>&nbsp;card)</span></div>
+<div class="block">Добавляет карту в руку игрока.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>card</code> - карта, добавляемая в руку</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getSum()">
 <h3>getSum</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getSum</span>()</div>
+<div class="block">Получение суммы очков игрока.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>кол-во очков</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="isBlackJack()">
 <h3>isBlackJack</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isBlackJack</span>()</div>
+<div class="block">Проверяет, является ли текущая рука игрока блэкджеком.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true, если игрок имеет блэкджек, иначе false</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="printHand(boolean)">
 <h3>printHand</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">printHand</span><wbr><span class="parameters">(boolean&nbsp;hideSum)</span></div>
+<div class="block">Печатает руку игрока.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>hideSum</code> - отображение суммы руки</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="printHand()">
 <h3>printHand</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">printHand</span>()</div>
+<div class="block">Печатает руку игрока.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="revealCard(int)">
 <h3>revealCard</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Card.html" title="class in ru.nsu">Card</a></span>&nbsp;<span class="element-name">revealCard</span><wbr><span class="parameters">(int&nbsp;index)</span></div>
+<div class="block">Открывает скрытую карту.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>index</code> - индекс карты</dd>
+<dt>Returns:</dt>
+<dd>открытая карта</dd>
+</dl>
 </section>
 </li>
 </ul>

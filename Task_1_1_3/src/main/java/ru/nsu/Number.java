@@ -3,7 +3,7 @@ package ru.nsu;
 public class Number extends Expression{
     private final int number;
 
-    Number(int num){
+    public Number(int num){
         this.number = num;
     }
 

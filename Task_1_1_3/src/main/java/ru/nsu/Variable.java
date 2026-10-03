@@ -3,7 +3,7 @@ package ru.nsu;
 public class Variable extends Expression {
     private final String var;
 
-    Variable(String var) {
+    public Variable(String var) {
         this.var = var;
     }
 

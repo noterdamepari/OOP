@@ -3,7 +3,7 @@ package ru.nsu;
 import java.util.HashMap;
 
 public class Memory {
-    private HashMap<String, Integer> mem = new HashMap<>();
+    private final HashMap<String, Integer> mem = new HashMap<>();
 
     public Memory(String str) {
         String[] vars = str.split(";");

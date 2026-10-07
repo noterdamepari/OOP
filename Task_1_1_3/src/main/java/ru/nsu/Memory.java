@@ -2,9 +2,18 @@ package ru.nsu;
 
 import java.util.HashMap;
 
+/**
+ * Класс памяти для хранения значений переменных.
+ */
 public class Memory {
     private final HashMap<String, Integer> mem = new HashMap<>();
 
+
+    /**
+     * Конструктор памяти.
+     *
+     * @param str строка где через ; перечисляются перменные и их значения в формате key=value.
+     */
     public Memory(String str) {
         if (str.isBlank()) {
             return;
@@ -27,6 +36,11 @@ public class Memory {
         }
     }
 
+    /**
+     * Получение значения переменной по имени.
+     *
+     * @param var имя переменной.
+     */
     public int get(String var) {
         if (!mem.containsKey(var)) {
             throw new RuntimeException("Variable " + var + "not set");

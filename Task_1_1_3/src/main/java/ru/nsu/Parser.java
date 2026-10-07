@@ -1,10 +1,19 @@
 package ru.nsu;
 
+/**
+ * Класс парсера.
+ */
 public class Parser {
     private char[] exp;
     private int idx;
 
 
+    /**
+     * Парсер выражения.
+     *
+     * @param expression строка с выражением
+     * @return Expression соответстующий выражению
+     */
     public Expression parse(String expression) {
         if (expression == null || expression.trim().isEmpty()) {
             throw new RuntimeException("Пустая строка");
@@ -21,11 +30,8 @@ public class Parser {
         return res;
     }
 
-    private Expression parseExpression() {
-        Expression fst;
-        Expression snd;
-        char operation;
 
+    private Expression parseExpression() {
         if (idx >= exp.length) {
             throw new RuntimeException("Неожиданный конец выражения");
         }
@@ -34,6 +40,7 @@ public class Parser {
         }
         skipSpaces();
         // разбираем первый операнд
+        Expression fst;
         if (idx >= exp.length) {
             throw new RuntimeException("Неожиданный конец выражения");
         }
@@ -53,11 +60,13 @@ public class Parser {
         }
 
         // оператор
+        char operation;
+
         operation = exp[idx++];
-        if (operation != '+' &&
-                operation != '-' &&
-                operation != '*' &&
-                operation != '/') {
+        if (operation != '+'
+                && operation != '-'
+                && operation != '*'
+                && operation != '/') {
             throw new RuntimeException("Недопустимая операция: " + operation);
         }
 
@@ -66,6 +75,7 @@ public class Parser {
         if (idx >= exp.length) {
             throw new RuntimeException("Неожиданный конец выражения");
         }
+        Expression snd;
         if (Character.isDigit(exp[idx])) {
             snd = parseNum();
         } else if (Character.isLetter(exp[idx])) {
@@ -91,6 +101,7 @@ public class Parser {
         };
     }
 
+
     private Expression parseVar() {
         StringBuilder sb = new StringBuilder();
         while (idx < exp.length && Character.isLetter(exp[idx])) {
@@ -98,6 +109,7 @@ public class Parser {
         }
         return new Variable(sb.toString());
     }
+
 
     private Expression parseNum() {
         int num = 0;

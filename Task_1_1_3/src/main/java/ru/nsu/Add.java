@@ -4,7 +4,7 @@ public class Add extends Expression {
     Expression fst;
     Expression snd;
 
-    Add(Expression fst, Expression snd){
+    Add(Expression fst, Expression snd) {
         this.fst = fst;
         this.snd = snd;
     }
@@ -20,7 +20,7 @@ public class Add extends Expression {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "(" + fst.toString() + "+" + snd.toString() + ")";
     }
 

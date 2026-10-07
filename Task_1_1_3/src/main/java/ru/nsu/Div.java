@@ -25,7 +25,7 @@ public class Div extends Expression {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "(" + fst.toString() + "/" + snd.toString() + ")";
     }
 }

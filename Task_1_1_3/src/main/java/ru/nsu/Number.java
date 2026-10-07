@@ -1,9 +1,9 @@
 package ru.nsu;
 
-public class Number extends Expression{
+public class Number extends Expression {
     private final int number;
 
-    public Number(int num){
+    public Number(int num) {
         this.number = num;
     }
 

@@ -2,7 +2,7 @@ package ru.nsu;
 
 public abstract class Expression {
 
-    public void print(){
+    public void print() {
         System.out.println(this);
     }
 

@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"ru.nsu","l":"Add"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu","l":"Div"},{"p":"ru.nsu","l":"Expression"},{"p":"ru.nsu","l":"Main"},{"p":"ru.nsu","l":"Memory"},{"p":"ru.nsu","l":"Mul"},{"p":"ru.nsu","l":"Number"},{"p":"ru.nsu","l":"Parser"},{"p":"ru.nsu","l":"Sub"},{"p":"ru.nsu","l":"Variable"}];updateSearchResults();

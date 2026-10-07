@@ -1,6 +1,7 @@
 package ru.nsu;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 
 class DivTest {
@@ -12,6 +13,23 @@ class DivTest {
         );
 
         assertEquals(2, expression.eval(new Memory("")));
+    }
+
+    @Test
+    void missingNestedExpression() {
+        Expression exp = new Div(
+                new Number(10),
+                new Number(0)
+        );
+        RuntimeException exception = assertThrows(
+                RuntimeException.class,
+                () -> exp.eval(new Memory(""))
+        );
+
+        assertEquals(
+                "Division by zero",
+                exception.getMessage()
+        );
     }
 
     @Test

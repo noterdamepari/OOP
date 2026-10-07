@@ -39,7 +39,11 @@ public class Div extends Expression {
      */
     @Override
     public int eval(Memory vars) {
-        return fst.eval(vars) / snd.eval(vars);
+        int second = snd.eval(vars);
+        if (second == 0) {
+            throw new RuntimeException("Division by zero");
+        }
+        return fst.eval(vars) / second;
     }
 
     /**

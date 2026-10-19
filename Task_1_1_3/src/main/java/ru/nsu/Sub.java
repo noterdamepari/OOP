@@ -4,13 +4,13 @@ package ru.nsu;
  * Класс вычитания.
  */
 public class Sub extends Expression {
-    Expression fst;
-    Expression snd;
+    private Expression fst;
+    private Expression snd;
 
     /**
      * Конструктор вычитания.
      */
-    Sub(Expression fst, Expression snd) {
+    public Sub(Expression fst, Expression snd) {
         this.fst = fst;
         this.snd = snd;
     }

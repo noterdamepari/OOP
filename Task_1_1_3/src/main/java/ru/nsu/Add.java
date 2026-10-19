@@ -4,13 +4,13 @@ package ru.nsu;
  * Класс суммы.
  */
 public class Add extends Expression {
-    Expression fst;
-    Expression snd;
+    private Expression fst;
+    private Expression snd;
 
     /**
      * Конструктор сложения.
      */
-    Add(Expression fst, Expression snd) {
+    public Add(Expression fst, Expression snd) {
         this.fst = fst;
         this.snd = snd;
     }

@@ -4,8 +4,8 @@ package ru.nsu;
  * Класс умножения.
  */
 public class Mul extends Expression {
-    Expression fst;
-    Expression snd;
+    private Expression fst;
+    private Expression snd;
 
     /**
      * Конструктор умножения.

@@ -4,8 +4,8 @@ package ru.nsu;
  * Класс деления.
  */
 public class Div extends Expression {
-    Expression fst;
-    Expression snd;
+    private Expression fst;
+    private Expression snd;
 
     /**
      * Конструктор деления.
@@ -41,7 +41,7 @@ public class Div extends Expression {
     public int eval(Memory vars) {
         int second = snd.eval(vars);
         if (second == 0) {
-            throw new RuntimeException("Division by zero");
+            throw new ArithmeticException("Division by zero");
         }
         return fst.eval(vars) / second;
     }

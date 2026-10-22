@@ -2,10 +2,8 @@ package ru.nsu.graphs;
 
 import ru.nsu.misc.Edge;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
@@ -35,7 +33,7 @@ public class AdjacencyListGraph<V> extends AbstractGraph<V> {
     @Override
     public void delVertex(V v) {
         if (!graph.containsKey(v)){
-            return;
+            throw new NoSuchElementException();
         }
         for (Set<V> adjLists : graph.values()){
             adjLists.remove(v);
@@ -63,7 +61,7 @@ public class AdjacencyListGraph<V> extends AbstractGraph<V> {
     @Override
     public void delEdge(V from, V to) {
         if (!graph.containsKey(from) || !graph.containsKey(to)){
-            throw new NoSuchElementException();
+            return;
         }
         Set<V> adjList = graph.get(from);
         adjList.remove(to);
@@ -86,7 +84,7 @@ public class AdjacencyListGraph<V> extends AbstractGraph<V> {
      */
     @Override
     public Set<V> getVertices() {
-        return graph.keySet();
+        return new HashSet<>(graph.keySet());
     }
 
     /**

@@ -40,8 +40,8 @@ public class TopoSorter<V> implements Sorter<V> {
             if (c == Color.WHITE) {
                 visit(gr, next);
             }
-            visited.put(vrt, Color.BLACK);
-            res.addFirst(vrt);
         }
+        visited.put(vrt, Color.BLACK);
+        res.addFirst(vrt);
     }
 }

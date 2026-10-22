@@ -74,9 +74,6 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
     public void addEdge(V from, V to) {
         int i = getIdx(from);
         int j = getIdx(to);
-        if (i == j) {
-            throw new IllegalArgumentException();
-        }
 
         Edge<V> e = new Edge<>(from, to);
         if (eidxs.containsKey(e)) {
@@ -86,8 +83,12 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
             row.add(0);
         }
         int col = edges.size();
-        matrix.get(i).set(col, 1);
-        matrix.get(j).set(col, -1);
+        if (i == j) {
+            matrix.get(i).set(col, 2);
+        } else {
+            matrix.get(i).set(col, 1);
+            matrix.get(j).set(col, -1);
+        }
         eidxs.put(e, col);
         edges.add(e);
     }
@@ -100,7 +101,7 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
     public void delEdge(V from, V to) {
         Edge<V> e = new Edge<>(from, to);
         if (!eidxs.containsKey(e)) {
-            throw new NoSuchElementException();
+          return;
         }
         int col = eidxs.remove(e);
         int last = edges.size() - 1;

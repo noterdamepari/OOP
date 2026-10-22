@@ -15,7 +15,6 @@ public class FileReader {
             while ((line = in.readLine()) != null) {
                 line = line.trim();
                 if (line.isEmpty()) {
-                    System.out.println("check");
                     continue;
                 }
                 if (!line.contains("->")){
@@ -30,7 +29,6 @@ public class FileReader {
                 if (trimmed[0].isEmpty() || trimmed[1].isEmpty()) {
                     throw new IllegalArgumentException("blank vrt name");
                 }
-                System.out.println(trimmed[0]);
                 target.addVertex(trimmed[0]);
                 target.addVertex(trimmed[1]);
                 target.addEdge(trimmed[0], trimmed[1]);

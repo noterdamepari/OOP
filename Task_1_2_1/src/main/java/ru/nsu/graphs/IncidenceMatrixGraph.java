@@ -14,11 +14,11 @@ import ru.nsu.misc.Edge;
  * Incidence matrix graph implementation.
  */
 public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
-    private Map<V, Integer> idxs;
-    private List<V> verts;
-    private Map<Edge<V>, Integer> eidxs;
-    private List<Edge<V>> edges;
-    private List<List<Integer>> matrix;
+    private final Map<V, Integer> idxs;
+    private final List<V> verts;
+    private final Map<Edge<V>, Integer> eidxs;
+    private final List<Edge<V>> edges;
+    private final List<List<Integer>> matrix;
 
     /**
      * Incidence matrix graph constructor.
@@ -79,7 +79,7 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
      * Add graph edge.
      *
      * @param from start vert
-     * @param to final vert
+     * @param to   final vert
      */
     @Override
     public void addEdge(V from, V to) {
@@ -108,13 +108,13 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
      * Delete graph edge.
      *
      * @param from start vert
-     * @param to final vert
+     * @param to   final vert
      */
     @Override
     public void delEdge(V from, V to) {
         Edge<V> e = new Edge<>(from, to);
         if (!eidxs.containsKey(e)) {
-          return;
+            return;
         }
         int col = eidxs.remove(e);
         int last = edges.size() - 1;

@@ -21,7 +21,7 @@ public class TopoSorter<V> implements Sorter<V> {
     /**
      * Topological sorting class constructor.
      */
-    public TopoSorter(){
+    public TopoSorter() {
         visited = new HashMap<>();
         res = new LinkedList<>();
     }

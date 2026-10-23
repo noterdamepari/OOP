@@ -23,7 +23,7 @@ public interface Graph<V> {
      * Add graph edge.
      *
      * @param from start vert
-     * @param to final vert
+     * @param to   final vert
      */
     void addEdge(V from, V to);
 
@@ -31,7 +31,7 @@ public interface Graph<V> {
      * Delete graph edge.
      *
      * @param from start vert
-     * @param to final vert
+     * @param to   final vert
      */
     void delEdge(V from, V to);
 

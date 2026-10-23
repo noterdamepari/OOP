@@ -54,7 +54,7 @@ public class AdjacencyListGraph<V> extends AbstractGraph<V> {
      * Add graph edge.
      *
      * @param from start vert
-     * @param to final vert
+     * @param to   final vert
      */
     @Override
     public void addEdge(V from, V to) {
@@ -69,7 +69,7 @@ public class AdjacencyListGraph<V> extends AbstractGraph<V> {
      * Delete graph edge.
      *
      * @param from start vert
-     * @param to final vert
+     * @param to   final vert
      */
     @Override
     public void delEdge(V from, V to) {

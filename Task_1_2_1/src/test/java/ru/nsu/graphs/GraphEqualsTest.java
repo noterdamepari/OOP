@@ -28,7 +28,7 @@ public class GraphEqualsTest {
     }
 
     @Test
-    void toStringTest(){
+    void toStringTest() {
         graph1.addVertex(1);
         graph1.addVertex(2);
         graph1.addVertex(3);

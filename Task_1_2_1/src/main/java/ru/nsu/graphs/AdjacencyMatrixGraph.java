@@ -43,7 +43,7 @@ public class AdjacencyMatrixGraph<V> extends AbstractGraph<V> {
         verts.add(v);
     }
 
-    private void extendMatrix(){
+    private void extendMatrix() {
         int newCap = matrix.length * 2;
         char[][] newMatrix = new char[newCap][newCap];
         for (int i = 0; i < matrix.length; i++) {
@@ -77,7 +77,7 @@ public class AdjacencyMatrixGraph<V> extends AbstractGraph<V> {
         }
 
         Arrays.fill(matrix[lastVerIdx], (char) 0);
-        for (int i = 0; i < verts.size(); i++){
+        for (int i = 0; i < verts.size(); i++) {
             matrix[i][lastVerIdx] = 0;
         }
         verts.remove(lastVerIdx);
@@ -94,7 +94,7 @@ public class AdjacencyMatrixGraph<V> extends AbstractGraph<V> {
      * Add graph edge.
      *
      * @param from start vert
-     * @param to final vert
+     * @param to   final vert
      */
     @Override
     public void addEdge(V from, V to) {
@@ -107,7 +107,7 @@ public class AdjacencyMatrixGraph<V> extends AbstractGraph<V> {
      * Delete graph edge.
      *
      * @param from start vert
-     * @param to final vert
+     * @param to   final vert
      */
     @Override
     public void delEdge(V from, V to) {
@@ -128,7 +128,7 @@ public class AdjacencyMatrixGraph<V> extends AbstractGraph<V> {
         int i = getIdx(v);
         Set<V> neighbours = new HashSet<V>();
         for (int j = 0; j < verts.size(); j++) {
-            if (matrix[i][j] == 1){
+            if (matrix[i][j] == 1) {
                 neighbours.add(verts.get(j));
             }
         }

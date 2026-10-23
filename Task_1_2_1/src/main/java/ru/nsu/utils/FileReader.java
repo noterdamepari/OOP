@@ -14,7 +14,7 @@ public class FileReader {
     /**
      * Graph reader method.
      *
-     * @param file path to file
+     * @param file   path to file
      * @param target graph
      */
     public static void read(Path file, Graph<String> target) throws IOException {
@@ -25,7 +25,7 @@ public class FileReader {
                 if (line.isEmpty()) {
                     continue;
                 }
-                if (!line.contains("->")){
+                if (!line.contains("->")) {
                     target.addVertex(line);
                     continue;
                 }

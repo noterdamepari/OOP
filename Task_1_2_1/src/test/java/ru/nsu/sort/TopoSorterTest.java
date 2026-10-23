@@ -1,12 +1,13 @@
 package ru.nsu.sort;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
-import ru.nsu.graphs.Graph;
 import ru.nsu.graphs.AdjacencyListGraph;
+import ru.nsu.graphs.Graph;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class TopoSorterTest {
     private final TopoSorter<String> sorter = new TopoSorter<>();

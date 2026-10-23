@@ -6,7 +6,14 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * abstract graph implementation for toStr and equals
+ */
 public abstract class AbstractGraph<V> implements Graph<V> {
+
+    /**
+     * equals func for graph interface
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -15,11 +22,18 @@ public abstract class AbstractGraph<V> implements Graph<V> {
                 && getEdges().equals(other.getEdges());
     }
 
+
+    /**
+     * hash func for graph interface
+     */
     @Override
     public int hashCode() {
         return Objects.hash(getVertices(), getEdges());
     }
 
+    /**
+     * toString func for graph interface
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

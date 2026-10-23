@@ -8,7 +8,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 
+/**
+ * Graph reader class
+ */
 public class FileReader {
+    /**
+     * Graph reader method
+     */
     public static void read(Path file, Graph<String> target) throws IOException {
         try (BufferedReader in = Files.newBufferedReader(file)) {
             String line;

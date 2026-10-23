@@ -1,10 +1,9 @@
 package ru.nsu.sort;
 
-import ru.nsu.graphs.Graph;
-
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import ru.nsu.graphs.Graph;
 
 /**
  * Topological sorting class.
@@ -14,7 +13,7 @@ public class TopoSorter<V> implements Sorter<V> {
         WHITE,
         GRAY,
         BLACK
-    };
+    }
 
     HashMap<V, Color> visited;
     LinkedList<V> res;

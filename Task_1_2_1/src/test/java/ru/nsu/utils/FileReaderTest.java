@@ -4,15 +4,14 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
-import ru.nsu.graphs.AdjacencyListGraph;
-import ru.nsu.graphs.Graph;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Set;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+import ru.nsu.graphs.AdjacencyListGraph;
+import ru.nsu.graphs.Graph;
 
 class FileReaderTest {
 

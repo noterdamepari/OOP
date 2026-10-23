@@ -1,12 +1,11 @@
 package ru.nsu.utils;
 
-import ru.nsu.graphs.Graph;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import ru.nsu.graphs.Graph;
 
 /**
  * Graph reader class

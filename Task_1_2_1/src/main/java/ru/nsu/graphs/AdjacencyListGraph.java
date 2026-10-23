@@ -1,12 +1,11 @@
 package ru.nsu.graphs;
 
-import ru.nsu.misc.Edge;
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
+import ru.nsu.misc.Edge;
 
 /**
  * Adjacency list graph implementation.

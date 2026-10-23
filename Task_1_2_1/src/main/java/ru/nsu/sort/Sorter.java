@@ -1,8 +1,7 @@
 package ru.nsu.sort;
 
-import ru.nsu.graphs.Graph;
-
 import java.util.List;
+import ru.nsu.graphs.Graph;
 
 /**
  * Graph sorting interface.

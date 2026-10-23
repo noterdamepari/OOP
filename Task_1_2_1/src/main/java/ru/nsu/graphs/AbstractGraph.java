@@ -1,10 +1,9 @@
 package ru.nsu.graphs;
 
-import ru.nsu.misc.Edge;
-
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import ru.nsu.misc.Edge;
 
 /**
  * Abstract graph implementation for toStr and equals.

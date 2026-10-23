@@ -1,12 +1,11 @@
 package ru.nsu;
 
 
+import java.io.IOException;
+import java.nio.file.Path;
 import ru.nsu.graphs.AdjacencyListGraph;
 import ru.nsu.graphs.Graph;
 import ru.nsu.utils.FileReader;
-
-import java.io.IOException;
-import java.nio.file.Path;
 
 /**
  * Main class.

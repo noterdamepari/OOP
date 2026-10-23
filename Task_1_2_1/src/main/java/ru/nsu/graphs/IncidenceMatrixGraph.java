@@ -1,7 +1,5 @@
 package ru.nsu.graphs;
 
-import ru.nsu.misc.Edge;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -10,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
+import ru.nsu.misc.Edge;
 
 /**
  * Incidence matrix graph implementation.

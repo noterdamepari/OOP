@@ -1,8 +1,7 @@
 package ru.nsu.graphs;
 
-import ru.nsu.misc.Edge;
-
 import java.util.Set;
+import ru.nsu.misc.Edge;
 
 public interface Graph<V> {
 

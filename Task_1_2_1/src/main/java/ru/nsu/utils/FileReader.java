@@ -13,7 +13,7 @@ import java.util.Arrays;
  */
 public class FileReader {
     /**
-     * Graph reader method
+     * Graph reader method.
      *
      * @param file path to file
      * @param target graph

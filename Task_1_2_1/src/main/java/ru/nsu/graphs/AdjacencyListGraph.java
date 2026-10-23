@@ -9,20 +9,20 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 
 /**
- * adjacency list graph implementation
+ * Adjacency list graph implementation.
  */
 public class AdjacencyListGraph<V> extends AbstractGraph<V> {
     private Map<V, Set<V>> graph;
 
     /**
-     * adjacency list graph constructor
+     * adjacency list graph constructor.
      */
     public AdjacencyListGraph() {
         graph = new HashMap<V, Set<V>>();
     }
 
     /**
-     * Add graph vertex
+     * Add graph vertex.
      *
      * @param v vertex
      */
@@ -36,7 +36,7 @@ public class AdjacencyListGraph<V> extends AbstractGraph<V> {
     }
 
     /**
-     * Del graph vertex
+     * Del graph vertex.
      *
      * @param v vertex
      */
@@ -52,7 +52,7 @@ public class AdjacencyListGraph<V> extends AbstractGraph<V> {
     }
 
     /**
-     * Add graph edge
+     * Add graph edge.
      *
      * @param from start vert
      * @param to final vert
@@ -67,7 +67,7 @@ public class AdjacencyListGraph<V> extends AbstractGraph<V> {
     }
 
     /**
-     * Delete graph edge
+     * Delete graph edge.
      *
      * @param from start vert
      * @param to final vert
@@ -82,7 +82,7 @@ public class AdjacencyListGraph<V> extends AbstractGraph<V> {
     }
 
     /**
-     * Get neighbors func
+     * Get neighbors func.
      *
      * @param v vertex
      * @return neighbours
@@ -96,7 +96,7 @@ public class AdjacencyListGraph<V> extends AbstractGraph<V> {
     }
 
     /**
-     * Get vertices func
+     * Get vertices func.
      *
      * @return all vertices in graph
      */
@@ -106,7 +106,7 @@ public class AdjacencyListGraph<V> extends AbstractGraph<V> {
     }
 
     /**
-     * Get edges func
+     * Get edges func.
      *
      * @return all edges in graph
      */

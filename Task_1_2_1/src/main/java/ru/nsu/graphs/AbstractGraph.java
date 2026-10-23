@@ -7,12 +7,12 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * abstract graph implementation for toStr and equals
+ * Abstract graph implementation for toStr and equals.
  */
 public abstract class AbstractGraph<V> implements Graph<V> {
 
     /**
-     * equals func for graph interface
+     * Equals func for graph interface.
      */
     @Override
     public boolean equals(Object obj) {
@@ -24,7 +24,7 @@ public abstract class AbstractGraph<V> implements Graph<V> {
 
 
     /**
-     * hash func for graph interface
+     * Hash func for graph interface.
      */
     @Override
     public int hashCode() {
@@ -32,7 +32,7 @@ public abstract class AbstractGraph<V> implements Graph<V> {
     }
 
     /**
-     * toString func for graph interface
+     * ToString func for graph interface.
      */
     @Override
     public String toString() {

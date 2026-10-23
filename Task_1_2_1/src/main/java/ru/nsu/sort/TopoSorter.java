@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Topological sorting class
+ * Topological sorting class.
  */
 public class TopoSorter<V> implements Sorter<V> {
     private enum Color {
@@ -20,7 +20,7 @@ public class TopoSorter<V> implements Sorter<V> {
     LinkedList<V> res;
 
     /**
-     * Topological sorting class constructor
+     * Topological sorting class constructor.
      */
     public TopoSorter(){
         visited = new HashMap<>();
@@ -28,7 +28,8 @@ public class TopoSorter<V> implements Sorter<V> {
     }
 
     /**
-     * Sort method
+     * Sort method.
+     *
      * @param gr Graph
      */
     public List<V> sort(Graph<V> gr){

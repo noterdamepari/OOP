@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 
 /**
- * incidence matrix graph implementation
+ * Incidence matrix graph implementation.
  */
 public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
     private Map<V, Integer> idxs;
@@ -22,7 +22,7 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
     private List<List<Integer>> matrix;
 
     /**
-     * incidence matrix graph constructor
+     * Incidence matrix graph constructor.
      */
     public IncidenceMatrixGraph() {
         idxs = new HashMap<V, Integer>();
@@ -33,7 +33,7 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
     }
 
     /**
-     * Add graph vertex
+     * Add graph vertex.
      *
      * @param v vertex
      */
@@ -49,13 +49,13 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
     }
 
     /**
-     * Del graph vertex
+     * Del graph vertex.
      *
      * @param v vertex
      */
     @Override
     public void delVertex(V v) {
-        if (!idxs.containsKey(v)){
+        if (!idxs.containsKey(v)) {
             throw new NoSuchElementException();
         }
         int idx = idxs.get(v);
@@ -77,7 +77,7 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
     }
 
     /**
-     * Add graph edge
+     * Add graph edge.
      *
      * @param from start vert
      * @param to final vert
@@ -106,7 +106,7 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
     }
 
     /**
-     * Delete graph edge
+     * Delete graph edge.
      *
      * @param from start vert
      * @param to final vert
@@ -135,7 +135,7 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
     }
 
     /**
-     * Get neighbors func
+     * Get neighbors func.
      *
      * @param v vertex
      * @return neighbours
@@ -153,7 +153,7 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
     }
 
     /**
-     * Get vertices func
+     * Get vertices func.
      *
      * @return all vertices in graph
      */
@@ -163,7 +163,7 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
     }
 
     /**
-     * Get edges func
+     * Get edges func.
      *
      * @return all edges in graph
      */
@@ -172,7 +172,7 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
         return new HashSet<>(edges);
     }
 
-    private int getIdx(V v){
+    private int getIdx(V v) {
         if (!idxs.containsKey(v)) {
             throw new NoSuchElementException();
         }

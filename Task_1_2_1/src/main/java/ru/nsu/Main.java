@@ -9,11 +9,11 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 /**
- * Main class
+ * Main class.
  */
 public class Main {
     /**
-     * Entrypoint
+     * Entrypoint.
      */
     public static void main(String[] args) throws IOException {
         Graph<String> gr = new AdjacencyListGraph<>();

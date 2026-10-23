@@ -5,11 +5,11 @@ import ru.nsu.graphs.Graph;
 import java.util.List;
 
 /**
- * Graph sorting interface
+ * Graph sorting interface.
  */
 public interface Sorter<V> {
     /**
-     * Sort method
+     * Sort method.
      *
      * @param gr Graph
      */

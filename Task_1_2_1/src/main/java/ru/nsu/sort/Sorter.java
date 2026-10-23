@@ -10,6 +10,8 @@ import java.util.List;
 public interface Sorter<V> {
     /**
      * Sort method
+     *
+     * @param gr Graph
      */
-    List<V> sort(Graph<V> graph);
+    List<V> sort(Graph<V> gr);
 }

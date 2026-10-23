@@ -10,7 +10,12 @@ import java.util.List;
  * Topological sorting class
  */
 public class TopoSorter<V> implements Sorter<V> {
-    private enum Color {WHITE,GRAY,BLACK};
+    private enum Color {
+        WHITE,
+        GRAY,
+        BLACK
+    };
+
     HashMap<V, Color> visited;
     LinkedList<V> res;
 
@@ -24,6 +29,7 @@ public class TopoSorter<V> implements Sorter<V> {
 
     /**
      * Sort method
+     * @param gr Graph
      */
     public List<V> sort(Graph<V> gr){
         for (V v : gr.getVertices()) {
@@ -31,7 +37,7 @@ public class TopoSorter<V> implements Sorter<V> {
         }
 
         for (V v : gr.getVertices()) {
-            if (visited.get(v) == Color.WHITE){
+            if (visited.get(v) == Color.WHITE) {
                 visit(gr, v);
             }
         }

@@ -14,6 +14,9 @@ import java.util.Arrays;
 public class FileReader {
     /**
      * Graph reader method
+     *
+     * @param file path to file
+     * @param target graph
      */
     public static void read(Path file, Graph<String> target) throws IOException {
         try (BufferedReader in = Files.newBufferedReader(file)) {

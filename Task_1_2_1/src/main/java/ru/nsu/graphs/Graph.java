@@ -8,18 +8,21 @@ public interface Graph<V> {
 
     /**
      * Add graph vertex
+     *
      * @param v vertex
      */
     void addVertex(V v);
 
     /**
      * Del graph vertex
+     *
      * @param v vertex
      */
     void delVertex(V v);
 
     /**
      * Add graph edge
+     *
      * @param from start vert
      * @param to final vert
      */
@@ -27,6 +30,7 @@ public interface Graph<V> {
 
     /**
      * Delete graph edge
+     *
      * @param from start vert
      * @param to final vert
      */
@@ -34,6 +38,7 @@ public interface Graph<V> {
 
     /**
      * Get neighbors func
+     *
      * @param v vertex
      * @return neighbours
      */
@@ -41,12 +46,14 @@ public interface Graph<V> {
 
     /**
      * Get vertices func
+     *
      * @return all vertices in graph
      */
     Set<V> getVertices();
 
     /**
      * Get edges func
+     *
      * @return all edges in graph
      */
     Set<Edge<V>> getEdges();

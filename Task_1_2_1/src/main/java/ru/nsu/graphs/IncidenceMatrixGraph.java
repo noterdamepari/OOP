@@ -34,6 +34,7 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
 
     /**
      * Add graph vertex
+     *
      * @param v vertex
      */
     @Override
@@ -49,6 +50,7 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
 
     /**
      * Del graph vertex
+     *
      * @param v vertex
      */
     @Override
@@ -76,6 +78,7 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
 
     /**
      * Add graph edge
+     *
      * @param from start vert
      * @param to final vert
      */
@@ -104,6 +107,7 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
 
     /**
      * Delete graph edge
+     *
      * @param from start vert
      * @param to final vert
      */
@@ -132,6 +136,7 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
 
     /**
      * Get neighbors func
+     *
      * @param v vertex
      * @return neighbours
      */
@@ -149,6 +154,7 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
 
     /**
      * Get vertices func
+     *
      * @return all vertices in graph
      */
     @Override
@@ -158,6 +164,7 @@ public class IncidenceMatrixGraph<V> extends AbstractGraph<V> {
 
     /**
      * Get edges func
+     *
      * @return all edges in graph
      */
     @Override

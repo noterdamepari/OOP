@@ -7,21 +7,21 @@ import java.util.Set;
 public interface Graph<V> {
 
     /**
-     * Add graph vertex
+     * Add graph vertex.
      *
      * @param v vertex
      */
     void addVertex(V v);
 
     /**
-     * Del graph vertex
+     * Del graph vertex.
      *
      * @param v vertex
      */
     void delVertex(V v);
 
     /**
-     * Add graph edge
+     * Add graph edge.
      *
      * @param from start vert
      * @param to final vert
@@ -29,7 +29,7 @@ public interface Graph<V> {
     void addEdge(V from, V to);
 
     /**
-     * Delete graph edge
+     * Delete graph edge.
      *
      * @param from start vert
      * @param to final vert
@@ -37,7 +37,7 @@ public interface Graph<V> {
     void delEdge(V from, V to);
 
     /**
-     * Get neighbors func
+     * Get neighbors func.
      *
      * @param v vertex
      * @return neighbours
@@ -45,14 +45,14 @@ public interface Graph<V> {
     Set<V> getNeighbours(V v);
 
     /**
-     * Get vertices func
+     * Get vertices func.
      *
      * @return all vertices in graph
      */
     Set<V> getVertices();
 
     /**
-     * Get edges func
+     * Get edges func.
      *
      * @return all edges in graph
      */

@@ -16,8 +16,12 @@ public abstract class AbstractGraph<V> implements Graph<V> {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Graph<?> other)) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Graph<?> other)) {
+            return false;
+        }
         return getVertices().equals(other.getVertices())
                 && getEdges().equals(other.getEdges());
     }

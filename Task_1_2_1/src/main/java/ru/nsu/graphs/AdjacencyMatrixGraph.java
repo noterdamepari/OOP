@@ -77,7 +77,7 @@ public class AdjacencyMatrixGraph<V> extends AbstractGraph<V> {
             }
         }
 
-        Arrays.fill(matrix[lastVerIdx], (char)0);
+        Arrays.fill(matrix[lastVerIdx], (char) 0);
         for (int i = 0; i < verts.size(); i++){
             matrix[i][lastVerIdx] = 0;
         }

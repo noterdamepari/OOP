@@ -32,7 +32,7 @@ public class TopoSorter<V> implements Sorter<V> {
      *
      * @param gr Graph
      */
-    public List<V> sort(Graph<V> gr){
+    public List<V> sort(Graph<V> gr) {
         for (V v : gr.getVertices()) {
             visited.put(v, Color.WHITE);
         }
@@ -46,7 +46,7 @@ public class TopoSorter<V> implements Sorter<V> {
         return res;
     }
 
-    private void visit(Graph<V> gr, V vrt){
+    private void visit(Graph<V> gr, V vrt) {
         visited.put(vrt, Color.GRAY);
         for (V next : gr.getNeighbours(vrt)) {
             Color c = visited.get(next);

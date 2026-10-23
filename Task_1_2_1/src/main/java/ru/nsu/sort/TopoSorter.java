@@ -9,12 +9,6 @@ import ru.nsu.graphs.Graph;
  * Topological sorting class.
  */
 public class TopoSorter<V> implements Sorter<V> {
-    private enum Color {
-        WHITE,
-        GRAY,
-        BLACK
-    }
-
     HashMap<V, Color> visited;
     LinkedList<V> res;
 
@@ -58,5 +52,11 @@ public class TopoSorter<V> implements Sorter<V> {
         }
         visited.put(vrt, Color.BLACK);
         res.addFirst(vrt);
+    }
+
+    private enum Color {
+        WHITE,
+        GRAY,
+        BLACK
     }
 }

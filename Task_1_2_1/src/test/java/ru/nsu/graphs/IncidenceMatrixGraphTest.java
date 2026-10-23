@@ -1,5 +1,8 @@
 package ru.nsu.graphs;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.nsu.misc.Edge;
@@ -7,10 +10,6 @@ import ru.nsu.misc.Edge;
 import java.util.HashSet;
 import java.util.NoSuchElementException;
 import java.util.Set;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class IncidenceMatrixGraphTest {
     private IncidenceMatrixGraph<Integer> graph;

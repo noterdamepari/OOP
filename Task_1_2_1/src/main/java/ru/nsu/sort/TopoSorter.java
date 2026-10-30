@@ -26,6 +26,8 @@ public class TopoSorter<V> implements Sorter<V> {
      * @param gr Graph
      */
     public List<V> sort(Graph<V> gr) {
+        visited.clear();
+        res.clear();
         for (V v : gr.getVertices()) {
             visited.put(v, Color.WHITE);
         }
@@ -36,7 +38,7 @@ public class TopoSorter<V> implements Sorter<V> {
             }
         }
 
-        return res;
+        return new LinkedList<>(res);
     }
 
     private void visit(Graph<V> gr, V vrt) {

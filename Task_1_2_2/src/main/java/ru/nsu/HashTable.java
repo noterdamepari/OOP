@@ -21,13 +21,12 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
     /**
      * HashTable constructor.
      */
-    public HashTable() {
+    public HashTable(){
         this(16);
     }
 
     /**
      * HashTable constructor with capacity.
-     *
      * @param cap capacity
      */
     @SuppressWarnings("unchecked")
@@ -39,11 +38,11 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
         this.size = 0;
         this.buffer = (Node<K, V>[]) new Node[cap];
         this.modCount = 0;
-        InitSentinels();
+        initSentinels();
     }
 
     @SuppressWarnings("unchecked")
-    private void ExtendMap() {
+    private void extendMap() {
         Node<K, V>[] tmpbuffer = new Node[size];
         int s = 0;
         for (int i = 0; i < cap; i++) {
@@ -56,13 +55,13 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
         cap *= 2;
         this.buffer = new Node[cap];
         size = 0;
-        InitSentinels();
+        initSentinels();
         for (int i = 0; i < s; i++) {
-            PutWithoutChecks(tmpbuffer[i].getKey(), tmpbuffer[i].getValue());
+            putWithoutChecks(tmpbuffer[i].getKey(), tmpbuffer[i].getValue());
         }
     }
 
-    private void InitSentinels() {
+    private void initSentinels() {
         for (int i = 0; i < cap; i++) {
             this.buffer[i] = new Node<>();
         }
@@ -90,7 +89,7 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
         return null;
     }
 
-    private void PutWithoutChecks(K key, V value) {
+    private void putWithoutChecks(K key, V value) {
         int hash = key.hashCode() & 0x7fffffff;
         Node<K, V> node = buffer[hash % cap];
         while (node.next != null) {
@@ -102,17 +101,16 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
 
     /**
      * Put entry to HashTable.
-     *
-     * @param key   key
+     * @param key key
      * @param value value
      */
-    public void Put(K key, V value) {
+    public void put(K key, V value) {
         if (findNode(key) != null) {
             throw new IllegalArgumentException("Key already exists");
         }
 
         if ((double) size / cap >= 0.75) {
-            ExtendMap();
+            extendMap();
         }
         int hash = key.hashCode() & 0x7fffffff;
         Node<K, V> node = buffer[hash % cap];
@@ -126,11 +124,11 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
 
     /**
      * Remove entry from HashTable.
-     *
      * @param key key
+     *
      * @return entry value
      */
-    public V Remove(K key) {
+    public V remove(K key) {
         Node<K, V> prev = findPrevNode(key);
         if (prev == null) {
             return null;
@@ -145,11 +143,11 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
 
     /**
      * Get value from HashTable by key.
-     *
      * @param key key
+     *
      * @return value
      */
-    public V Get(K key) {
+    public V get(K key) {
         Node<K, V> node = findNode(key);
         if (node == null) {
             throw new NoSuchElementException();
@@ -159,12 +157,12 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
 
     /**
      * Update entry in HashTable.
-     *
-     * @param key      key
+     * @param key key
      * @param newValue new value
+     *
      * @return old value
      */
-    public V Update(K key, V newValue) {
+    public V update(K key, V newValue) {
         Node<K, V> node = findNode(key);
         if (node == null) {
             throw new NoSuchElementException();
@@ -176,11 +174,11 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
 
     /**
      * Check entry in HashTable.
-     *
      * @param key key
+     *
      * @return is entry in HashTable (bool)
      */
-    public boolean Check(K key) {
+    public boolean check(K key) {
         Node<K, V> node = findNode(key);
         return node != null;
     }
@@ -263,8 +261,8 @@ public class HashTable<K, V> implements Iterable<Map.Entry<K, V>> {
 
     /**
      * Equals func.
+     * @param obj   the reference object with which to compare.
      *
-     * @param obj the reference object with which to compare.
      * @return is equal (bool)
      */
     @Override

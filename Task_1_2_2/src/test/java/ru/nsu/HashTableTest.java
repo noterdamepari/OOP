@@ -18,45 +18,45 @@ class HashTableTest {
     void putAndGet() {
         HashTable<String, Integer> table = new HashTable<>();
 
-        table.Put("one", 1);
-        table.Put("two", 2);
+        table.put("one", 1);
+        table.put("two", 2);
 
-        assertEquals(1, table.Get("one"));
-        assertEquals(2, table.Get("two"));
+        assertEquals(1, table.get("one"));
+        assertEquals(2, table.get("two"));
     }
 
     @Test
     void putDuplicateKey() {
         HashTable<String, Integer> table = new HashTable<>();
 
-        table.Put("one", 1);
+        table.put("one", 1);
 
         assertThrows(IllegalArgumentException.class,
-                () -> table.Put("one", 2));
+                () -> table.put("one", 2));
 
-        assertEquals(1, table.Get("one"));
+        assertEquals(1, table.get("one"));
     }
 
     @Test
     void removeElement() {
         HashTable<String, Integer> table = new HashTable<>();
 
-        table.Put("one", 1);
+        table.put("one", 1);
 
-        assertEquals(true, table.Check("one"));
-        assertEquals(1, table.Remove("one"));
+        assertEquals(true, table.check("one"));
+        assertEquals(1, table.remove("one"));
         assertThrows(NoSuchElementException.class,
-                () -> table.Get("one"));
+                () -> table.get("one"));
     }
 
     @Test
     void updateElement() {
         HashTable<String, Integer> table = new HashTable<>();
 
-        table.Put("one", 1);
+        table.put("one", 1);
 
-        assertEquals(1, table.Update("one", 10));
-        assertEquals(10, table.Get("one"));
+        assertEquals(1, table.update("one", 10));
+        assertEquals(10, table.get("one"));
     }
 
     @Test
@@ -64,18 +64,18 @@ class HashTableTest {
         HashTable<Integer, String> table = new HashTable<>(4);
 
         // Эти ключи могут попасть в одну корзину.
-        table.Put(1, "one");
-        table.Put(5, "five");
-        table.Put(9, "nine");
+        table.put(1, "one");
+        table.put(5, "five");
+        table.put(9, "nine");
 
-        assertEquals("one", table.Get(1));
-        assertEquals("five", table.Get(5));
-        assertEquals("nine", table.Get(9));
+        assertEquals("one", table.get(1));
+        assertEquals("five", table.get(5));
+        assertEquals("nine", table.get(9));
 
-        table.Remove(5);
+        table.remove(5);
 
-        assertEquals("one", table.Get(1));
-        assertEquals("nine", table.Get(9));
+        assertEquals("one", table.get(1));
+        assertEquals("nine", table.get(9));
     }
 
     @Test
@@ -83,12 +83,12 @@ class HashTableTest {
         HashTable<Integer, Integer> table = new HashTable<>(2);
 
         for (int i = 0; i < 100; i++) {
-            table.Put(i, i * 10);
+            table.put(i, i * 10);
         }
 
 
         for (int i = 0; i < 100; i++) {
-            assertEquals(i * 10, table.Get(i));
+            assertEquals(i * 10, table.get(i));
         }
     }
 
@@ -96,9 +96,9 @@ class HashTableTest {
     void iterateOverElements() {
         HashTable<Integer, String> table = new HashTable<>();
 
-        table.Put(1, "one");
-        table.Put(2, "two");
-        table.Put(3, "three");
+        table.put(1, "one");
+        table.put(2, "two");
+        table.put(3, "three");
 
         int count = 0;
 
@@ -115,11 +115,11 @@ class HashTableTest {
     void iteratorDetectsModification() {
         HashTable<Integer, String> table = new HashTable<>();
 
-        table.Put(1, "one");
+        table.put(1, "one");
 
         Iterator<Map.Entry<Integer, String>> iterator = table.iterator();
 
-        table.Put(2, "two");
+        table.put(2, "two");
 
         assertThrows(ConcurrentModificationException.class,
                 iterator::hasNext);
@@ -131,8 +131,8 @@ class HashTableTest {
 
         assertNotNull(table.toString());
 
-        table.Put("one", 1);
-        table.Put("two", 2);
+        table.put("one", 1);
+        table.put("two", 2);
 
         String result = table.toString();
 
@@ -147,8 +147,8 @@ class HashTableTest {
         HashTable<String, Integer> first = new HashTable<>();
         HashTable<String, Integer> second = new HashTable<>();
 
-        first.Put("one", 1);
-        second.Put("one", 2);
+        first.put("one", 1);
+        second.put("one", 2);
 
         assertNotEquals(first, second);
         assertNotEquals(first, null);
@@ -160,11 +160,11 @@ class HashTableTest {
         HashTable<String, Integer> first = new HashTable<>();
         HashTable<String, Integer> second = new HashTable<>();
 
-        first.Put("one", 1);
-        first.Put("two", 2);
+        first.put("one", 1);
+        first.put("two", 2);
 
-        second.Put("two", 2);
-        second.Put("one", 1);
+        second.put("two", 2);
+        second.put("one", 1);
 
         assertEquals(first, second);
         assertEquals(first.hashCode(), second.hashCode());

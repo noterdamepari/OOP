@@ -5,6 +5,7 @@ import java.util.Objects;
 
 /**
  * Node class.
+ *
  * @param <K> key type
  * @param <V> value type
  */
@@ -22,7 +23,8 @@ public class Node<K, V> implements Map.Entry<K, V> {
 
     /**
      * Node constructor.
-     * @param key key
+     *
+     * @param key   key
      * @param value value
      */
     Node(K key, V value) {
